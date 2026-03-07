@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 1st Month Anniversary 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --rose: #e8678a; --blush: #f7c5d4; --cream: #fff8f3;
+      --gold: #d4956a; --deep: #7a2d4a; --soft: #f2e4ea;
+    }
+    html, body { height: 100%; background: var(--cream); font-family: 'Lato', sans-serif; overflow-x: hidden; }
+
+    .petal { position: fixed; font-size: 18px; animation: fall linear infinite; pointer-events: none; opacity: 0.7; z-index: 0; }
+    @keyframes fall {
+      0%   { transform: translateY(-40px) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    .page { display: none; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 100vh; padding: 40px 20px; position: relative; z-index: 1; text-align: center; }
+    .page.active { display: flex; }
+
+    /* PAGE 1 */
+    #page1 { background: radial-gradient(ellipse at 50% 30%, #fde8f0 0%, var(--cream) 70%); }
+
+    .tag-line { font-weight: 300; font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--rose); opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+    .main-title { font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(30px, 7vw, 58px); color: var(--deep); line-height: 1.2;
+      margin: 18px 0 10px; opacity: 0; animation: fadeUp 0.9s 0.5s forwards; }
+    .main-title span { color: var(--rose); font-style: italic; }
+    .heart-divider { font-size: 22px; letter-spacing: 8px; margin: 10px 0;
+      opacity: 0; animation: fadeUp 0.7s 0.9s forwards; }
+    .message { font-size: clamp(14px, 2.5vw, 17px); color: #7a5062; line-height: 1.9;
+      max-width: 540px; font-weight: 300; opacity: 0; animation: fadeUp 0.9s 1.1s forwards; }
+    .message em { color: var(--rose); font-style: normal; font-weight: 400; }
+
+    .gift-btn-wrap { margin-top: 42px; opacity: 0; animation: fadeUp 0.9s 2s forwards; }
+    .gift-btn { background: linear-gradient(135deg, var(--rose), #c7446d); color: white; border: none;
+      padding: 16px 44px; font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic;
+      border-radius: 50px; cursor: pointer; box-shadow: 0 8px 28px rgba(232,103,138,0.45);
+      transition: transform 0.2s, box-shadow 0.2s; }
+    .gift-btn:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 14px 36px rgba(232,103,138,0.55); }
+    .gift-btn:active { transform: scale(0.97); }
+
+    /* PAGE 2 */
+    #page2 { background: radial-gradient(ellipse at 50% 60%, #fde0ec 0%, var(--cream) 65%); }
+
+    .hug-title { font-family: 'Playfair Display', serif; font-size: clamp(22px, 5vw, 40px);
+      color: var(--deep); opacity: 0; animation: fadeUp 0.8s 0.3s forwards; }
+    .hug-sub { font-size: 13px; color: #a07088; letter-spacing: 0.1em; font-weight: 300;
+      margin: 8px 0 30px; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
+
+    .char-wrap { opacity: 0; animation: popIn 0.7s 1s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+    @keyframes popIn {
+      0%   { opacity: 0; transform: scale(0.5) translateY(30px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .char-wrap svg { filter: drop-shadow(0 16px 40px rgba(232,103,138,0.3)); }
+
+    .arm-left  { transform-origin: 108px 205px; animation: hugLeft  2s 1.8s ease-in-out infinite alternate; }
+    .arm-right { transform-origin: 192px 205px; animation: hugRight 2s 1.8s ease-in-out infinite alternate; }
+    @keyframes hugLeft  { 0% { transform: rotate(0deg); } 100% { transform: rotate(-20deg); } }
+    @keyframes hugRight { 0% { transform: rotate(0deg); } 100% { transform: rotate(20deg);  } }
+
+    .girl-body { animation: sway 3.5s 1.5s ease-in-out infinite; transform-origin: 150px 300px; }
+    @keyframes sway {
+      0%,100% { transform: rotate(-1.5deg); }
+      50%     { transform: rotate(1.5deg); }
+    }
+
+    .eye-l { animation: blink 4s 2s infinite; transform-origin: 126px 157px; }
+    .eye-r { animation: blink 4s 2.1s infinite; transform-origin: 174px 157px; }
+    @keyframes blink {
+      0%,90%,100% { transform: scaleY(1); }
+      95%          { transform: scaleY(0.1); }
+    }
+
+    .fh { animation: floatHeart 2.8s ease-in-out infinite; opacity: 0; }
+    .fh:nth-child(1) { animation-delay: 1.9s; }
+    .fh:nth-child(2) { animation-delay: 2.6s; }
+    .fh:nth-child(3) { animation-delay: 3.3s; }
+    @keyframes floatHeart {
+      0%   { opacity:0; transform: translateY(0) scale(0.5); }
+      30%  { opacity:1; }
+      100% { opacity:0; transform: translateY(-65px) scale(1.2); }
+    }
+
+    .msg-card { background: white; border: 1.5px solid var(--blush); border-radius: 20px;
+      padding: 20px 32px; max-width: 400px; margin-top: 24px; font-size: 14px;
+      color: #7a5062; line-height: 1.9; font-weight: 300;
+      opacity: 0; animation: fadeUp 0.8s 2.3s forwards;
+      box-shadow: 0 6px 30px rgba(232,103,138,0.12); }
+    .msg-card strong { color: var(--rose); font-weight: 400; }
+
+    @keyframes fadeUp {
+      0%   { opacity:0; transform: translateY(22px); }
+      100% { opacity:1; transform: translateY(0); }
+    }
+
+    .confetti { position: fixed; pointer-events: none; z-index: 999;
+      animation: confettiFall 3s ease-out forwards; }
+    @keyframes confettiFall {
+      0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg) scale(0.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="petals"></div>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <p class="tag-line">✦ One Month of Forever ✦</p>
+  <h1 class="main-title">Happy <span>1st Month</span><br/>Wedding Anniversary</h1>
+  <div class="heart-divider">🌸 💕 🌸</div>
+  <p class="message">
+    One month of <em>waking up next to your best friend</em>, of shared laughter,
+    quiet evenings, and little moments that quietly become the most
+    <em>beautiful memories</em>. May every month ahead be even more
+    wonderful than the last — filled with <em>love, warmth, and endless joy</em>. 🌷
+  </p>
+  <div class="gift-btn-wrap">
+    <button class="gift-btn" id="openGift">🎁 &nbsp;Open Your Little Gift</button>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <h2 class="hug-title">Sending you a Big Hug! 🤗</h2>
+  <p class="hug-sub">from the bottom of our hearts ♡</p>
+
+  <div class="char-wrap">
+    <svg width="300" height="390" viewBox="0 0 300 390" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- floating hearts -->
+      <g class="fh"><text x="55"  y="130" font-size="16">💗</text></g>
+      <g class="fh"><text x="225" y="115" font-size="12">💕</text></g>
+      <g class="fh"><text x="142" y="80"  font-size="14">💖</text></g>
+
+      <g class="girl-body">
+
+        <!-- DRESS -->
+        <path d="M103 225 Q82 315 72 368 L228 368 Q218 315 197 225 Z" fill="#f472a8"/>
+        <!-- Dress shine -->
+        <path d="M115 230 Q130 320 128 368" stroke="rgba(255,255,255,0.25)" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <!-- Bow -->
+        <ellipse cx="150" cy="228" rx="22" ry="10" fill="#e8668e"/>
+        <ellipse cx="132" cy="225" rx="14" ry="9" fill="#f9a8cc" transform="rotate(-20 132 225)"/>
+        <ellipse cx="168" cy="225" rx="14" ry="9" fill="#f9a8cc" transform="rotate(20 168 225)"/>
+        <circle cx="150" cy="227" r="7" fill="#e8668e"/>
+        <!-- Collar -->
+        <path d="M117 218 Q150 236 183 218" stroke="#e8668e" stroke-width="2.5" fill="none"/>
+
+        <!-- NECK -->
+        <rect x="140" y="195" width="20" height="26" rx="8" fill="#ffd6b8"/>
+
+        <!-- TORSO -->
+        <rect x="117" y="198" width="66" height="28" rx="11" fill="#ffd6b8"/>
+
+        <!-- LEFT ARM -->
+        <g class="arm-left">
+          <path d="M117 208 Q73 218 58 250 Q49 266 66 274 Q74 254 93 241 Q111 228 122 223 Z" fill="#ffd6b8"/>
+          <circle cx="61" cy="268" r="14" fill="#ffd6b8"/>
+          <circle cx="52" cy="261" r="7" fill="#ffd6b8"/>
+          <circle cx="53" cy="273" r="7" fill="#ffd6b8"/>
+          <circle cx="67" cy="279" r="7" fill="#ffd6b8"/>
+          <circle cx="73" cy="269" r="7" fill="#ffd6b8"/>
+        </g>
+
+        <!-- RIGHT ARM -->
+        <g class="arm-right">
+          <path d="M183 208 Q227 218 242 250 Q251 266 234 274 Q226 254 207 241 Q189 228 178 223 Z" fill="#ffd6b8"/>
+          <circle cx="239" cy="268" r="14" fill="#ffd6b8"/>
+          <circle cx="248" cy="261" r="7" fill="#ffd6b8"/>
+          <circle cx="247" cy="273" r="7" fill="#ffd6b8"/>
+          <circle cx="233" cy="279" r="7" fill="#ffd6b8"/>
+          <circle cx="227" cy="269" r="7" fill="#ffd6b8"/>
+        </g>
+
+        <!-- LEGS -->
+        <rect x="114" y="355" width="30" height="30" rx="8" fill="#f472a8"/>
+        <rect x="156" y="355" width="30" height="30" rx="8" fill="#f472a8"/>
+        <!-- Shoes -->
+        <ellipse cx="129" cy="385" rx="20" ry="7" fill="#c7446d"/>
+        <ellipse cx="171" cy="385" rx="20" ry="7" fill="#c7446d"/>
+        <!-- Shoe strap highlight -->
+        <ellipse cx="122" cy="381" rx="7" ry="3" fill="#e8558e" opacity="0.6"/>
+        <ellipse cx="164" cy="381" rx="7" ry="3" fill="#e8558e" opacity="0.6"/>
+
+        <!-- HEAD -->
+        <ellipse cx="150" cy="148" rx="57" ry="54" fill="#ffd6b8"/>
+
+        <!-- HAIR back -->
+        <ellipse cx="150" cy="148" rx="57" ry="54" fill="#3d1a38"/>
+        <ellipse cx="150" cy="148" rx="50" ry="47" fill="#ffd6b8"/>
+
+        <!-- Hair top + fringe -->
+        <path d="M95 132 Q92 70 150 64 Q208 70 205 132 Q188 96 150 93 Q112 96 95 132 Z" fill="#3d1a38"/>
+        <!-- Side bangs -->
+        <path d="M96 134 Q80 164 90 188 Q102 167 102 148 Z" fill="#3d1a38"/>
+        <path d="M204 134 Q220 164 210 188 Q198 167 198 148 Z" fill="#3d1a38"/>
+        <!-- Fringe strands -->
+        <path d="M110 95 Q118 115 114 128" stroke="#3d1a38" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M128 88 Q133 110 130 125" stroke="#3d1a38" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M150 86 Q152 108 150 124" stroke="#3d1a38" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <!-- Hair highlight -->
+        <path d="M118 78 Q140 71 158 78" stroke="#6b2e60" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+        <!-- SPECS -->
+        <!-- Left lens -->
+        <rect x="107" y="144" width="38" height="26" rx="11" fill="rgba(190,225,255,0.38)" stroke="#3d1a38" stroke-width="2.8"/>
+        <!-- Right lens -->
+        <rect x="155" y="144" width="38" height="26" rx="11" fill="rgba(190,225,255,0.38)" stroke="#3d1a38" stroke-width="2.8"/>
+        <!-- Bridge -->
+        <line x1="145" y1="157" x2="155" y2="157" stroke="#3d1a38" stroke-width="2.5"/>
+        <!-- Temples -->
+        <line x1="107" y1="157" x2="93"  y2="155" stroke="#3d1a38" stroke-width="2.5"/>
+        <line x1="193" y1="157" x2="207" y2="155" stroke="#3d1a38" stroke-width="2.5"/>
+        <!-- Lens gleam -->
+        <circle cx="118" cy="150" r="3.5" fill="white" opacity="0.75"/>
+        <circle cx="166" cy="150" r="3.5" fill="white" opacity="0.75"/>
+
+        <!-- EYES -->
+        <g class="eye-l">
+          <ellipse cx="126" cy="157" rx="8.5" ry="9.5" fill="#3d1a38"/>
+          <circle cx="129.5" cy="153.5" r="3.5" fill="white"/>
+          <circle cx="122" cy="160" r="1.5" fill="white" opacity="0.5"/>
+        </g>
+        <g class="eye-r">
+          <ellipse cx="174" cy="157" rx="8.5" ry="9.5" fill="#3d1a38"/>
+          <circle cx="177.5" cy="153.5" r="3.5" fill="white"/>
+          <circle cx="170" cy="160" r="1.5" fill="white" opacity="0.5"/>
+        </g>
+
+        <!-- LASHES -->
+        <line x1="118" y1="147" x2="115" y2="143" stroke="#3d1a38" stroke-width="1.5"/>
+        <line x1="126" y1="147" x2="126" y2="142" stroke="#3d1a38" stroke-width="1.5"/>
+        <line x1="134" y1="147" x2="137" y2="143" stroke="#3d1a38" stroke-width="1.5"/>
+        <line x1="166" y1="147" x2="163" y2="143" stroke="#3d1a38" stroke-width="1.5"/>
+        <line x1="174" y1="147" x2="174" y2="142" stroke="#3d1a38" stroke-width="1.5"/>
+        <line x1="182" y1="147" x2="185" y2="143" stroke="#3d1a38" stroke-width="1.5"/>
+
+        <!-- BLUSH -->
+        <ellipse cx="107" cy="172" rx="13" ry="7" fill="#ffb3c8" opacity="0.55"/>
+        <ellipse cx="193" cy="172" rx="13" ry="7" fill="#ffb3c8" opacity="0.55"/>
+
+        <!-- NOSE -->
+        <path d="M147 169 Q150 174 153 169" stroke="#e8a080" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+        <!-- SMILE -->
+        <path d="M133 180 Q150 196 167 180" stroke="#c7446d" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- Dimples -->
+        <circle cx="130" cy="179" r="2" fill="#ffb3c8"/>
+        <circle cx="170" cy="179" r="2" fill="#ffb3c8"/>
+
+        <!-- HAIR BOW -->
+        <ellipse cx="118" cy="85" rx="19" ry="12" fill="#ff6fa8" transform="rotate(-22 118 85)"/>
+        <ellipse cx="137" cy="80" rx="19" ry="12" fill="#ff6fa8" transform="rotate(22 137 80)"/>
+        <circle cx="127" cy="83" r="10" fill="#e8558e"/>
+        <circle cx="127" cy="83" r="5"  fill="#ff99cc"/>
+
+      </g>
+    </svg>
+  </div>
+
+  <div class="msg-card">
+    Akka &amp; Mama — you two are <strong>absolutely made for each other</strong>. 💕<br/>
+    Wishing you a lifetime of <strong>love, laughter &amp; happiness</strong>.<br/>
+    Here's to many more months and years of togetherness! 🌸
+  </div>
+</div>
+
+<script>
+  // Petals
+  const emojis = ['🌸','🌹','💮','🌷','✿','🌺'];
+  const pc = document.getElementById('petals');
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = emojis[i % emojis.length];
+    p.style.cssText = `left:${Math.random()*100}vw;top:-30px;animation-duration:${6+Math.random()*8}s;animation-delay:${Math.random()*10}s;font-size:${12+Math.random()*14}px`;
+    pc.appendChild(p);
+  }
+
+  // Gift button
+  document.getElementById('openGift').addEventListener('click', () => {
+    const ce = ['🎊','💕','🌸','✨','💗','🎀','⭐','🥳'];
+    for (let i = 0; i < 35; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.textContent = ce[Math.floor(Math.random() * ce.length)];
+      c.style.cssText = `left:${15+Math.random()*70}vw;top:${15+Math.random()*50}vh;font-size:${14+Math.random()*16}px;animation-delay:${Math.random()*0.6}s`;
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 3600);
+    }
+    setTimeout(() => {
+      document.getElementById('page1').classList.remove('active');
+      document.getElementById('page2').classList.add('active');
+      window.scrollTo(0, 0);
+    }, 400);
+  });
+</script>
+</body>
+</html>
